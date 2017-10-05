@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h1 class="text-center">Polls</h1>
+      <% @polls.each do |poll| %>
+        <p>
+        <%= poll.question %>?
+        <%= link_to 'Yes', { :action => 'vote', :id => poll[:id], :answer => 'yes' }, :method => :post %> (<%= poll.yes %>) /
+        <%= link_to 'No', { :action => 'vote', :id => poll[:id], :answer => 'no' }, :method => :post %> (<%= poll.no %>)
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

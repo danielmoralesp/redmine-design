@@ -416,6 +416,12 @@ ActiveRecord::Schema.define(version: 20170419144536) do
     t.string  "salt",       limit: 255, null: false
   end
 
+  create_table "polls", force: :cascade do |t|
+    t.string  "question", limit: 255
+    t.integer "yes",      limit: 4
+    t.integer "no",       limit: 4
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "name",                   limit: 255,   default: "",    null: false
     t.text     "description",            limit: 65535

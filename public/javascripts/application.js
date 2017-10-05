@@ -1,6 +1,9 @@
 /* Redmine - project management software
    Copyright (C) 2006-2017  Jean-Philippe Lang */
 
+//= require jquery
+//= require bootstrap-sprockets
+
 function checkAll(id, checked) {
   $('#'+id).find('input[type=checkbox]:enabled').prop('checked', checked);
 }
@@ -120,7 +123,7 @@ function initFilters() {
 function addFilter(field, operator, values) {
   var fieldId = field.replace('.', '_');
   var tr = $('#tr_'+fieldId);
-  
+
   var filterOptions = availableFilters[field];
   if (!filterOptions) return;
 
@@ -603,7 +606,7 @@ $(document).ready(function(){
   $(document).click(function(e){
     if ($(e.target).closest(".drdn").length < 1) {
       $(".drdn.expanded").removeClass("expanded");
-    } 
+    }
   });
 
   observeSearchfield('projects-quick-search', null, $('#projects-quick-search').data('automcomplete-url'));
